@@ -6,12 +6,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.awt.image.Kernel;
-import java.lang.annotation.Target;
-import java.security.Key;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTests {
@@ -19,7 +16,7 @@ public class LoginTests {
     WebDriver driver;
 
 
-    @BeforeClass
+    @BeforeMethod
 
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -42,6 +39,8 @@ public class LoginTests {
 
     }
 
-
-
+@AfterMethod
+    public void cleanUp(){
+        driver.close();
+}
 }
