@@ -11,6 +11,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
+
+// hello ,,i
 public class LoginTests {
 
     WebDriver driver;
@@ -39,7 +41,20 @@ public class LoginTests {
 
     }
 
-@AfterMethod
+
+    @Test
+    public void logoutTest(){
+
+        driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+        driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
+        driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("test" + Keys.ENTER);
+
+
+
+
+    }
+
+    @AfterMethod
     public void cleanUp(){
         driver.close();
 }
